@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "osint-tool"
+version = "0.1.0"
+description = "Recolector OSINT modular y pasivo para auditar la superficie expuesta de un dominio propio."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "dnspython>=2.4",
+    "pypdf>=4",
+    "tldextract>=5",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+osint-tool = "osint_tool.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
